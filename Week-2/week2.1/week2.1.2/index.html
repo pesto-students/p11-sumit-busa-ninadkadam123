@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Happy Birthday Message creator</title>
+  </head>
+  <body>
+    <h1>Happy Birthday Message creator</h1>
+    <form action="POST">
+      <div>
+        <label for="message"> Message? </label>
+        <input
+          type="text"
+          id="message"
+          name="message"
+          value="Happy birthday!"
+        />
+      </div>
+      <div>
+        <label for="email"> Email ?</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="name@domain.com"
+          pattern="n [a-zA-Z0-9-_\.]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-
+          9-]+)*"
+        />
+      </div>
+      <div>
+        <label for="date"> Date to send? </label>
+        <input type="date" id="date" name="date" />
+      </div>
+      <div>
+        <label for="color"> Message color? </label>
+        <input type="color" id="color" name="color" />
+      </div>
+      <div>
+        <label for="blinks"> Number of blinks? </label>
+        <input
+          type="number"
+          id="blinks"
+          name="blinks"
+          value="0"
+          min="0"
+          max="10"
+        />
+      </div>
+      <div>
+        <label for="volume"> Music volume? </label>
+        <input
+          type="range"
+          id="volume"
+          name="volume"
+          value="20"
+          min="0"
+          max="50"
+        />
+      </div>
+      <div>
+        <button id="subbutton" name="subbutton">
+          Send Birthday Message
+        </button>
+      </div>
+    </form>
+  </body>
+</html>
