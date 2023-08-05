@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+
+<script>
+  function hcfandlcm() {
+    let num1 = prompt('Enter the first number');
+    let num2 = prompt('Enter the second number');
+    let HCF = 0;
+    let LCM = 0;
+
+    for (let i = 0; i < num1 && i < num2; i++) {
+      if (num1 % i == 0 && num2 % i == 0) {
+        HCF = i;
+      }
+    }
+
+    LCM = (num1 * num2) / HCF;
+
+    console.log(
+      `The LCM and HCF of numbers ${num1} and ${num2} are ${LCM} and ${HCF} respectively`
+    );
+  }
+
+  hcfandlcm();
+</script>
