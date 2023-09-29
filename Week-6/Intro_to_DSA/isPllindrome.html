@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  function isPalindrome() {
+    let num = prompt('Enter the Number');
+    let a = num;
+    let b = 0;
+
+    while (a != 0) {
+      b = b * 10 + Math.floor(a % 10);
+      a = Math.floor(a / 10);
+    }
+    if (b == num) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  console.log(isPalindrome());
+</script>

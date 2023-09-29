@@ -1,0 +1,5 @@
+- Week1.1.md content session 1 assignment.
+- In Week1.2.1 folder index.html has Hometown webpage
+- In Week 1.2.2 folder has table and list Assignments
+- In week 1.2.3 folder has poem assignment
+- In week 1.2.4 folder has advanced html assignment

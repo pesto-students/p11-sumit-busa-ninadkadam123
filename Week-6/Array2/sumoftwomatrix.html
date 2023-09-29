@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  function getInputArray() {
+    let row = parseInt(prompt('Enter the row'));
+    let col = parseInt(prompt('Enter the column'));
+
+    let arr = [];
+
+    for (let i = 0; i < row; i++) {
+      arr[i] = [];
+      for (let j = 0; j < col; j++) {
+        arr[i][j] = parseInt(prompt());
+      }
+    }
+
+    return arr;
+  }
+
+  function calculateSumOfArrays(array1, array2) {
+    if (array1.length != array2.length) {
+      prompt('Please provide equal row and colum');
+      return 0;
+    }
+    let arr = [];
+
+    for (let i = 0; i < array1.length; i++) {
+      arr[i] = [];
+      for (let j = 0; j < array1.length; j++) {
+        arr[i][j] = array1[i][j] + array2[i][j];
+      }
+    }
+
+    return arr;
+  }
+
+  let arr1 = getInputArray();
+  let arr2 = getInputArray();
+
+  console.log(calculateSumOfArrays(arr1, arr2));
+</script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  function sumofmaxandmin() {
+    let str = prompt('Enter the number separated with single space');
+    let arr = str.split(' ').map(Number);
+    let max = arr[0];
+    let min = arr[0];
+    for (let i = 1; i < arr.length; i++) {
+      if (arr[i] < min) {
+        min = arr[i];
+      }
+
+      if (arr[i] > max) {
+        max = arr[i];
+      }
+    }
+    return max + min;
+  }
+  console.log(sumofmaxandmin());
+</script>
