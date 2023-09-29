@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  function reverseNum() {
+    let num = prompt('Enter the Number');
+    let tmp = num;
+    let rnum = 0;
+    while (tmp != 0) {
+      rnum = rnum * 10 + Math.floor(tmp % 10);
+      tmp = Math.floor(tmp / 10);
+    }
+    console.log(rnum);
+  }
+
+  reverseNum();
+</script>
