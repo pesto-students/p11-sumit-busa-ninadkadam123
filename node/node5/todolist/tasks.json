@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Read",
+    "description": "Reading 10 pages",
+    "completed": true
+  },
+  {
+    "id": 3,
+    "title": "walk",
+    "description": "Walk 10000 steps",
+    "completed": false
+  },
+  {
+    "id": 4,
+    "title": "Exercise",
+    "description": "Do 25 pushups",
+    "completed": true
+  },
+  {
+    "id": 5,
+    "title": "Coding",
+    "description": "solve 5 challenges",
+    "completed": false
+  }
+]
