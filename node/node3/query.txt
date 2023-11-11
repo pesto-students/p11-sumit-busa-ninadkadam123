@@ -1,0 +1,72 @@
+use MovieDB
+
+db.createCollection('actors');
+db.createCollection('movies');
+db.createCollection('directors');
+
+db.actors.insert([{name:'Shahruk Khan', nationality:'Indian', movies:['Jawan','pathan','DON']},
+{name:'Anushka', nationality:'Indian', movies:['Rab nebana di Jodi','sultan']},
+{name:'Salman Khan', nationality:'Indian', movies:['Tiger','Pathan','sultan']},
+{name:'Ranbir Kapoor', nationality:'Indian', movies:['Bramhastra']},
+{name:'Aliya Bhat', nationality:'Indian', movies:['Bramhastra']},
+{name:'Hrutik Roshan', nationality:'Indian', movies:['Krish']},
+{name:'Amir Khan', nationality:'Indian', movies:['Lagan']},
+{name:'Tiger Shroff', nationality:'Indian', movies:['Ganpath']},
+{name:'Tom Cruise', nationality:'USA', movies:['MI']},
+{name:'Tom Holand', nationality:'Britan', movies:['Avenger']},
+{name:'Chris Hemsworth', nationality:'Australia', movies:['Avenger']},
+{name:'Ryan Reynolds', nationality:'Canada', movies:['Deadpool']}]);
+
+db.movies.insertMany([{title:'Avenger', release_year:2019, genre:'Action', director:['directorA'],actors:['Tom Holand','Chris Hemsworth']},
+{title:'Jawan', release_year:2023, genre:'Action', director:['directorB'],actors:['Shahruk Khan']},
+{title:'pathan', release_year:2023, genre:'Action', director:['directorc'],actors:['Shahruk Khan','Salman Khan']},
+{title:'sultan', release_year:2017, genre:'Action', director:['directorD'],actors:['Anushka','Salman Khan']},
+{title:'Rab nebana di Jodi', release_year:2011, genre:'Action', director:['directorA'],actors:['Anushka','Shahruk Khan']}
+]);
+
+db.directors.insertMany([{name:'directorA', nationality:'Indian', moviesdirected:['Rab nebana di Jodi','Avenger']},
+{name:'directorB', nationality:'US', moviesdirected:['Jawan']},
+{name:'directorC', nationality:'US', moviesdirected:['Jawan']},
+{name:'directorD', nationality:'US', moviesdirected:['sultan']}]);
+
+
+
+
+a) Find all movies released in a specific year.
+ -> db.movie.find({ release_year: 2023})
+
+ b) Find all movies in a specific genre.
+->db.movie.find({ genre:'Action'})
+
+ c) Find all movies directed by a specific director.
+-> db.movie.aggregate( [
+   {
+      $lookup: {
+         from: "directors",
+         localField: "director",    
+         foreignField: "name",  
+         as: "directorsofmovies"
+      }
+},
+    
+    { $project: { directorsofmovies: 0 } }
+   ])// Not Worked
+ d) Find all movies that a specific actor acted in. 
+->db.movies.aggregate( [
+   {
+      $lookup:
+         {
+           from: "actors",
+           pipeline: [
+              { $match: { name: 'Salman Khan' } },
+              { $project: { _id: 0, actors: { name: "$name" } } }
+              
+           ],
+           as: "movieactedin"
+         }
+    }
+] ) // Not worked
+e) Find all directors from a specific nationality. 
+->db.directors.find({nationality:'Indian'})
+f) Find all actors from a specific nationality.
+->db.actors.find({nationality:'Indian'})
